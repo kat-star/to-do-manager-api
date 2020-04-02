@@ -4,10 +4,12 @@ one:
   title: MyString
   notes: MyText
   completed?: false
-  date: 2020-03-31
+  date: 2020-04-01
+  user: one
 
 two:
   title: MyString
   notes: MyText
   completed?: false
-  date: 2020-03-31
+  date: 2020-04-01
+  user: two

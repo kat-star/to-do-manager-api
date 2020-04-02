@@ -6,41 +6,41 @@ class TodosController < ApplicationController
   end
 
   def show
-    user = User.find(params[:id])
-    render json: user
+    todo = Todo.find(params[:id])
+    render json: todo
   end
 
   def create
-    user = User.new(user_params)
-    if user.save
-      render json: user
+    todo = Todo.new(todo_params)
+    if todo.save
+      render json: todo
     else
-      render json: {error: 'Failed to create user'}
+      render json: {error: 'Failed to create todo item'}
     end
   end
 
   def update
-    user = User.find(params[:id])
-    if user.update(user_params)
-      render json: user
+    todo = Todo.find(params[:id])
+    if todo.update(todo_params)
+      render json: todo
     else
-      render json: {error: 'Failed to update todo'}
+      render json: {error: 'Failed to update todo item'}
     end
   end
 
   def destroy
-    user = User.find(params[:id])
-    if user.destroy
-      render json: {message: 'Successfully deleted user'}
+    todo = Todo.find(params[:id])
+    if todo.destroy
+      render json: {message: 'Successfully deleted todo item'}
     else 
-      render json: {error: 'Failed to delete user'}
+      render json: {error: 'Failed to delete todo item'}
     end
   end
 
   private
 
   def todo_params
-    params.require(todo).permit(:title, :notes, :completed?, :date, :user_id)
+    params.require(:todo).permit(:id, :title, :notes, :completed?, :date, :user_id)
   end
 
 end

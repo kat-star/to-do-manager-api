@@ -5,6 +5,7 @@ class CreateTodos < ActiveRecord::Migration[6.0]
       t.text :notes
       t.boolean :completed?, default: false
       t.date :date
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

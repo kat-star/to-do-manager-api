@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# User.destroy_all
+# Todo.destroy_all
+
+kat = User.create(name: 'Kat')
+
+todo1 = Todo.create(notes: "Keep working on React project", date: '2020-04-01', user: kat)
+todo2 = Todo.create(notes: "Study those algos", date: '2020-03-31', user: kat)
